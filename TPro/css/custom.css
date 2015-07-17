@@ -1,0 +1,150 @@
+/**
+ * Chrome Extension Twitter Bootstrap 3 Template
+ * Custom CSS
+ *	
+ */
+* {
+	border-radius: 0px !important;
+}
+body, section {			/* Change width and height to own preferences */
+	width: 330px;
+	height: 490px;
+	overflow-x: hidden;
+	font-family: Ubuntu, Arial, sans-serif;
+	/*font-size: 12px !important;*/
+}
+
+/* Basic style tweaks */
+
+	.login_window{ 
+		background-color: #009CE6;
+		color: #FEFFFE !important;
+		font-size: 14px !important;
+	}
+	.logo-sec{
+		height: 200px;
+	  	padding: 65px;
+	}
+	.login-form-sec{
+		font-weight: 300 !important;
+	}
+	section { padding: 5px;}
+	.navbar-brand { padding: 5px 5px 5px 10px !important; }
+	.navbar-brand img { width: 78px; }
+	.navbar { margin-bottom: 2px; background-color: #009CE6 !important; border: none; }
+
+	.menu-sui{
+		padding: 3% 3% 3% 0 !important;
+	  	text-align: right !important;
+	  	color: #FEFFFE !important;
+	}
+	.menu-sui p{
+		margin: 0 !important;
+	}
+
+	/* Scroll Bar */
+	::-webkit-scrollbar { width: 0px; }
+	::-webkit-scrollbar-track { -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.3); }
+	::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb:window-inactive  { background: rgba(187, 187, 187, 0.6); }
+
+
+
+/*** Overwrite Bootstrap ***/
+	.dropdown-menu{
+		left: -128px;
+	}
+	.form-horizontal .form-group {
+	  	margin-left: 0px;
+	  	margin-right: 0px;
+	  	margin-bottom: 10px;
+	}
+	.col-xs-1{
+		width: 8.333333333333332% !important;
+	}
+	.col-xs-2{
+		width: 16.666666666666664% !important;
+	}
+	.col-xs-3{
+		width: 25% !important;
+	}
+	.col-xs-4{
+		width: 33.33333333333333% !important;
+	}
+	.col-xs-5{
+		width: 41.66666666666667% !important;
+	}
+	.col-xs-6{
+		width: 49% !important;
+	}
+	.col-xs-7{
+		width: 58.333333333333336% !important;
+	}
+	.col-xs-8{
+		width: 66.66666666666666% !important;
+	}
+	.col-xs-9{
+		width: 75% !important;
+	}
+	.col-xs-10{
+		width: 83.33333333333334% !important;
+	}
+	.col-xs-11{
+		width: 91.66666666666666% !important;
+	}
+	.col-xs-12{
+		width: 100% !important;
+	}
+	.col-xs-6{
+		float: left;
+		position: relative;
+	  	min-height: 1px;
+	  	padding-right: 10px;
+	  	padding-left: 10px;
+	}
+	.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+	  	background-color: #4CC0F9;
+	}
+
+/*** Custom CSS ***/
+	#login-page{
+		height: 400px;
+	}
+	#footer{
+		height: 23px;
+	  	text-align: center;
+	  	color: rgb(124, 124, 124);
+	  	border-top: 1px solid rgb(200, 200, 200);
+	}
+	.login-form{
+		/*margin-top: 150px;*/
+		padding: 20px;
+	}
+	.text-center{
+		text-align: center !important;
+	}
+	.text-uppercase{
+		text-transform: uppercase !important;
+	}
+	.main-button {
+		border-radius: 100% !important;
+	  	height: 170px;
+	  	width: 170px;
+	  	border: 3px solid #8ED6EC;
+		text-align: center;
+		font-size: 36px;
+		text-transform: uppercase;
+		font-weight: 600;
+		outline: none !important;
+	}
+	#main-sec, form#task-form input[type=text], form#task-form select{
+		color: #009CE6 !important;
+	}
+	form#task-form input[type=text], form#task-form select{
+		border-color: #009CE6 !important;
+	}
+	#main-sec p{
+		margin: 0 !important;
+	}
+	#timer{
+		font-size: 16px;
+	}

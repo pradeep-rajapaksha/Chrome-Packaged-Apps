@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+		<meta name="description" content="Total Project Management by OpenArc System Managemen">
+		<meta name="author" content="Pradeep Rajapaksha">
+
+		<title>TPro</title>
+
+		<!-- Cascading Style Sheets -->
+		<link href="MetroJs/MetroJs.min.css" rel="stylesheet" media="screen">
+		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<link href="css/custom.css" rel="stylesheet" media="screen">		
+	</head>
+	<body>
+
+		<div class="login_window" id="login_window" style="/*display: none;*/">
+		<!-- <div class="login_window" style="display: none;"> -->
+
+			<section class="logo-sec">
+				<img src="img/logo.png" style=" width: 200px; " />
+			</section>
+			<section class="login-form-sec">
+
+				<form class="form-horizontal login-form" id="login-form" role="form">
+					<div class="form-group">
+						<div class="">
+							<label style="font-weight: 100;">User Name</label>
+							<input name="username" type="text" class="form-control" id="username" />
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="">
+							<label style="font-weight: 100;">Password</label>
+							<input name="password" type="password" class="form-control" id="password" />
+						</div>
+					</div>
+					<br />
+					<div class="form-group">
+					<div class="">
+							<button type="submit" class="btn btn-primary btn-large btn-block" style="height: 50px; font-weight: bold;">Login</button>
+						</div>
+					</div>
+				</form>
+			</section>
+		</div>
+
+		<div class="main_window" id="main_window" style="display: none;">
+		<!-- <div class="main_window" style="/*display: none;*/"> -->
+			
+	 		<nav class="navbar navbar-default" role="navigation">
+				<div class="navbar-header ">
+					<a class="navbar-brand" href="#">
+						<img src="img/logo.png" />
+					</a>
+				</div>
+				<div class="collapse navbar-collapse navbar-ex1-collapse pull-right menu-sui">
+					<p>Daily SUi : <span id="d_sui">90%</span></p>
+					<p>Cuimilative SUi : <span id="c_sui">90%</span></p>
+				</div>
+			</nav>
+
+			<section id="main-sec">
+				<form class="form-horizontal task-form" id="task-form" role="form" style="padding: 13px;">
+
+					<div class="form-group">
+						<div class="">
+							<select name="project" class="form-control project" id="project" >
+								<option>Select Project</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="">
+							<select name="task_id" class="form-control task_id" id="task_id" >
+								<option>Select Task</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="">
+							<input name="task_desc" type="text" class="form-control task_desc" id="task_desc" />
+						</div>
+					</div>
+					
+					<div class="form-group" style="margin-bottom: 0px;">
+						<div class="pull-left" style="text-align: left">
+							<p>Allocated Time</p>
+							<p style="font-weight:bold" id="allocated_time">000:00 hr</p>
+						</div>
+						<div class="pull-right" style="text-align: right">
+							<p>Time Taken</p>
+							<p style="font-weight:bold" id="time_taken">000:00 hr</p>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="" style="text-align: center;">
+							<button type="button" class="btn btn-primary main-button" id="main-button" status="start">
+							 	<p id="start">Start</p>
+							 	<!-- <p id="run">Stop</p>
+							 	<p id="timer">07:50:50 Hr</p> -->
+							</button>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="" style="text-align: center;">
+							<label style="width: 15%; text-align: center;">0%</label>
+							<label style="width: 60%">
+								<label id="percentage_val" class="percentage_val">0%</label>
+								<input type="range" name="percentage" id="percentage" min="0" max="100" style="width: 100%; outline: none;" step="5" />
+							</label>
+							<label style="width: 15%; text-align: center;">100%</label>
+						</div>
+					</div>
+				</form>
+			</section>
+
+		</div>
+
+	</body>
+	<footer>
+		
+		<!-- Scripts -->
+		<script src="js/jquery-2.0.3.min.js"></script>
+		<script src="js/jquery.session.js"></script>
+		<script src="js/jquery.cookie.js"></script>
+		<script src="js/jquery.nicescroll.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+
+		<script src="js/custom.js"></script>
+		<script src="js/ajax.js"></script>
+
+	</footer>
+</html>

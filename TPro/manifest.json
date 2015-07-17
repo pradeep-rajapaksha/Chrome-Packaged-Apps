@@ -1,0 +1,25 @@
+{
+  "name": "TPro",
+  "description": "Total Project Management by OpenArc System Managemen",
+  "version": "1.03",
+  "manifest_version": 2,
+  "icons": {
+    "16": "img/tpro16.png",
+    "48": "img/tpro48.png",
+    "128": "img/tpro128.png"
+  },
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  },
+  "permissions": [
+    "identity",
+    "cookies",
+    "http://tpro.openarc.lk/*",
+    "http://*.google.com/",
+    "unlimitedStorage",
+    "storage"
+  ]
+}
+    
