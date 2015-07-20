@@ -15,11 +15,12 @@
   },
   "permissions": [
     "identity",
-    "cookies",
+    "storage",
+    "alarms",
+    "alwaysOnTopWindows",
+    "background",
+    "system.display",
     "http://tpro.openarc.lk/*",
-    "http://*.google.com/",
-    "unlimitedStorage",
-    "storage"
+    "*://*.google.com/*" 
   ]
 }
-    

@@ -47,18 +47,25 @@ $(document).ready(function() {
 
 	$(document).on('click', '#main-button', function (event) {
 		if ($(this).attr('status')=="start") {
-
+			
+			start_timer();
 			$(this).removeClass('btn-primary').addClass('btn-danger');
 			$(this).css('border', '3px solid rgb(255, 152, 152)');
-			$(this).html('<p id="run">Stop</p><p id="timer">07:50:50 Hr</p>');
+			$(this).find('#button_text').text('Stop');
 			$(this).attr('status', 'run');
 		}
 		else if ($(this).attr('status')=="run") {
 
+			timer();
+
 			$(this).removeClass('btn-danger').addClass('btn-success');
 			$(this).css('border', '3px solid rgb(133, 231, 134)');
-			$(this).html('<p id="run">submit</p><p id="timer">07:50:50 Hr</p>');
-			$(this).attr('status', 'run');
+			$(this).find('#button_text').text('Submit');
+			$(this).attr('status', 'submit');
+		}
+		else if ($(this).attr('status')=="submit") {
+
+			clear_timer();
 		};
 	});
 
@@ -90,16 +97,67 @@ $(document).ready(function() {
 					
 					$('#allocated_time').html(resp.allocated_time+' hrs');
 					$('#time_taken').html(resp.time_taken+' hrs');
+
+					if (resp.complete_percentage==null || resp.complete_percentage==0) {
+						// $('#percentage_val').html('0%');
+						$('#percentage_val').html('0%යි යකෝ.!');
+						$('#percentage').val(0);
+					}
+					else{
+						$('#percentage_val').html(resp.complete_percentage+'%');
+						$('#percentage').val(resp.complete_percentage);
+					};
+					
 				};
 			});
 		};
 	});
 });
 
+// input rang value showing
 var p = document.getElementById("percentage"),
     res = document.getElementById("percentage_val");
-
 p.addEventListener("input", function() {
     res.innerHTML = p.value + '%';
 }, false); 
 
+
+
+// timer functions
+var seconds = 0, minutes = 0, hours = 0, t, time;
+function add() {
+	    seconds++;
+	    if (seconds >= 60) {
+	        seconds = 0;
+	        minutes++;
+	        if (minutes >= 60) {
+	            minutes = 0;
+	            hours++;
+	        }
+	    }
+	    time = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds) + ' Hr';
+	    // console.log(time);
+	    $('#timer_display').text(time);
+	    timer();
+	}
+	function timer() {
+	    t = setTimeout(add, 1000);
+	}
+
+	/* Start timer */
+	function start_timer() {
+		// console.log('start_timer');
+	    timer();
+	}
+
+	/* Stop timer */
+	function stop_timer() {
+		console.log('stop_timer');
+	    // clearTimeout(t);
+	}
+
+	/* Clear timer */
+	function clear_timer() {
+	    h1.textContent = "00:00:00 Hr";
+	    seconds = 0; minutes = 0; hours = 0;
+	}

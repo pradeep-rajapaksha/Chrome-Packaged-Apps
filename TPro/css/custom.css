@@ -8,7 +8,7 @@
 }
 body, section {			/* Change width and height to own preferences */
 	width: 330px;
-	height: 490px;
+	height: 495px;
 	overflow-x: hidden;
 	font-family: Ubuntu, Arial, sans-serif;
 	/*font-size: 12px !important;*/
@@ -23,7 +23,7 @@ body, section {			/* Change width and height to own preferences */
 	}
 	.logo-sec{
 		height: 200px;
-	  	padding: 65px;
+	  	padding: 65px 65px 0 65px;
 	}
 	.login-form-sec{
 		font-weight: 300 !important;
@@ -145,6 +145,7 @@ body, section {			/* Change width and height to own preferences */
 	#main-sec p{
 		margin: 0 !important;
 	}
-	#timer{
+	#timer_display{
 		font-size: 16px;
+		text-transform: capitalize !important;
 	}
