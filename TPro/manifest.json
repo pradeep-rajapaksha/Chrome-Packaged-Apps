@@ -1,7 +1,7 @@
 {
   "name": "TPro",
   "description": "Total Project Management by OpenArc System Managemen",
-  "version": "1.03",
+  "version": "1.0",
   "manifest_version": 2,
   "icons": {
     "16": "img/tpro16.png",

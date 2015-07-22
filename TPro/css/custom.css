@@ -129,23 +129,42 @@ body, section {			/* Change width and height to own preferences */
 		border-radius: 100% !important;
 	  	height: 170px;
 	  	width: 170px;
-	  	border: 3px solid #8ED6EC;
+	  	border: 3px solid #357ebd;
 		text-align: center;
 		font-size: 36px;
 		text-transform: uppercase;
 		font-weight: 600;
 		outline: none !important;
 	}
-	#main-sec, form#task-form input[type=text], form#task-form select{
+	#main-sec, form#task_form input[type=text], form#task_form select{
 		color: #009CE6 !important;
 	}
-	form#task-form input[type=text], form#task-form select{
+	form#login-form input[type=password], form#login-form input[type=text]{
+		border-color: #006DA1 !important;
+		color: #009CE6 !important;
+	}
+	form#task_form input[type=text], form#task_form select{
 		border-color: #009CE6 !important;
 	}
 	#main-sec p{
 		margin: 0 !important;
 	}
 	#timer_display{
-		font-size: 16px;
+		font-size: 20px;
 		text-transform: capitalize !important;
+	}
+	#cancel_button{
+		background-color: #EEEEEE !important;
+		border-color: #B0B0B0 !important;
+		position: absolute;
+		border-radius: 100% !important;
+		margin-top: 115px;
+		margin-left: 7px;
+		outline: none !important;
+		text-transform: uppercase;
+		font-weight: 600;
+		text-align: center;
+		width: 55px;
+		height: 55px;
+		visibility: hidden;
 	}

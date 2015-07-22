@@ -1,6 +1,23 @@
+Number.prototype.padLeft = function(base,chr){
+   var  len = (String(base || 10).length - String(this).length)+1;
+   return len > 0? new Array(len).join(chr || '0')+this : this;
+}
+function get_time_now () {
+
+    var d = new Date,
+        dformat = [ d.getFullYear(),
+        			(d.getMonth()+1).padLeft(),
+                    d.getDate().padLeft()].join('-')+
+                    ' ' +
+                  [ d.getHours().padLeft(),
+                    d.getMinutes().padLeft(),
+                    d.getSeconds().padLeft()].join(':');
+     return dformat;
+}
+
 function function_login (username, password, callback) {
 
-	var options='<option>Select Project</option>';
+	var options='<option value="">Select Project</option>';
 	var member_id;
 	$.ajax({
 		url: base_api_url+'/apiLogin',
@@ -31,29 +48,10 @@ function function_login (username, password, callback) {
 	    	callback(false, 'Something went Wrong!');
 	    }
 	});
-	
 }
 
-/*function get_project_list (member_code, member_id ) {
-	$.ajax({
-		url: base_api_url+'/apiLogin',
-		type: 'POST',
-		cache: false,
-	    async: true,
-	    crossdomain: true,
-		dataType: 'json',
-		data: {member_code: member_code, member_id: member_id},
-		success:function(response){	
-			console.log(response);
-		},
-		error:function(jqXHR,textStatus,errorThrown){
-	    	console.log(jqXHR);
-	    }
-	});
-}*/
-
 function get_project_task_list (member_id, project_id, callback) {
-	var options='<option>Select Task</option>';
+	var options='<option value="">Select Task</option>';
 	$.ajax({
 		url: base_api_url+'/apiTaskList',
 		type: 'POST',
@@ -71,7 +69,7 @@ function get_project_task_list (member_id, project_id, callback) {
 				for (var i = 0; i < response.tasks.length; i++) {
 					options += '<option value="'+response.tasks[i].task_id+'">'+response.tasks[i].task_name+'</option>' 
 				};
-
+				options += '<option value="ad-hoc">Ad-hoc Task</option>';
 				callback(true, options);
 			} else{
 				callback(false, response.error_msg);
@@ -126,5 +124,91 @@ function get_task_data (task_id, callback) {
     });
 }
 
+function disable_elements (task_id, task_name, timer_button, percentage) {
 
+	// console.log(timer_button);
+	$('#task_id').prop("disabled", task_id);
+	$('#task_desc').prop("disabled", task_name);
+	$('button#main-button').prop("disabled", timer_button);
+	$('#percentage').prop("disabled", percentage);
+}
+
+function reset_button_n_timer () {
+
+	$('button#main-button').attr('status', 'start'); // turn button status to 'start'.
+	$('button#main-button').removeClass('btn-danger').removeClass('btn-success').addClass('btn-primary');
+	$('button#main-button').css('border', '3px solid #357ebd');
+	$('button#main-button').find('#button_text').text('Start');
+	// $('button#main-button').find('#timer_display').text('');
+	$('button#main-button').find('#timer_display').text('00:00:00');
+	$('button#main-button').find('#task_duration').val('');
+
+	stop_timer();
+	clear_timer();
+
+	$('#task_start_time').val('0000-00-00 00:00:00');
+	$('#task_end_time').val('0000-00-00 00:00:00');
+	$('#task_duration').val('00:00:00');
+	$('#percentage').val(0);
+	$('#percentage_val').text('0%');
+}
+
+function update_task (data, callback) {
+	if (data.length!=0) {
+		// console.log(data);
+
+		$.ajax({
+			url: base_api_url+'/apiTaskUpdate',
+			type: 'POST',
+			cache: false,
+		    async: true,
+		    crossdomain: true,
+			dataType: 'json',
+			data: data,
+			success:function(response){	
+				// console.log(response);
+				if (response.query_status=='success') {
+					console.log(response);
+
+					callback(true, response);
+				} else{
+					callback(false, response)
+				};
+			},
+			error:function(jqXHR,textStatus,errorThrown){
+		    	callback(false, 'Something went Wrong!');
+		    }
+		});
+	};
+}
+
+function ad_ad_hoc_task (data, callback) {
+	if (data.length!=0) {
+		// console.log(data);
+
+		$.ajax({
+			url: base_api_url+'/apiAddAdhocTask',
+			type: 'POST',
+			cache: false,
+		    async: true,
+		    crossdomain: true,
+			dataType: 'json',
+			data: data,
+			success:function(response){	
+				// console.log(response);
+				if (response.query_status=='success') {
+					// console.log(response);
+					callback(true, response);
+
+				} else{
+
+					callback(false, response);
+				};
+			},
+			error:function(jqXHR,textStatus,errorThrown){
+		    	callback(false, 'Something went Wrong!');
+		    }
+		});
+	};
+}
 
